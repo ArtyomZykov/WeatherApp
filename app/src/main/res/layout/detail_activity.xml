@@ -9,13 +9,13 @@
     tools:context=".detail.DetailActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/backBatton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
-        android:onClick="onClickBack"
+        android:onClick="onClickBack_NePolycilosYbrat"
         app:backgroundTint="#B6B6B6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

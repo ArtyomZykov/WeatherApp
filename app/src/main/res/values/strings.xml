@@ -4,7 +4,7 @@
     <string name="country_format">Country: %1$s</string>
     <string name="timezone_format">Timezone: %1$s</string>
     <string name="temp">%1$s °C</string>
-    <string name="city_format">City: %1$s</string>
+    <string name="city_format">%1$s</string>
     <string name="temp_format">Temteratyre: %3$d</string>
     <string name="brief_weather_absent">No brief weather info</string>
     <string name="full_weather_absent">No full weather info</string>

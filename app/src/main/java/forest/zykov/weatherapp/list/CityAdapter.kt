@@ -1,19 +1,16 @@
 package forest.zykov.weatherapp.list
 
-import android.content.Intent
 import android.graphics.Color
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.SearchView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import forest.zykov.weatherapp.CityApplication
 import forest.zykov.weatherapp.R
 import forest.zykov.weatherapp.repository.City
+import kotlin.concurrent.timer
 
 
 class CityAdapter(private val onClick: (City) -> Unit) : RecyclerView.Adapter<TownHolder>() {
@@ -35,29 +32,68 @@ class CityAdapter(private val onClick: (City) -> Unit) : RecyclerView.Adapter<To
     }
 
     override fun getItemCount(): Int = city.count()
+/*
+    private fun initSearchView() {
+        val id = searchView.context.resources
+                .getIdentifier("android:id/search_src_text", null, null)
+        val textView = searchView.findViewById(id) as TextView
+        textView.setTextColor(Color.rgb(74, 74, 74))
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val list = myDbManager.readDbData(newText!!)
+                LibAdapter.updateAdapter(list)
+                return true
+            }
+        })
+    }
+    fun updateAdapter(listItems:List<DbElem>) {
+        listArray.clear()
+        listArray.addAll(listItems)
+        notifyDataSetChanged() // Сообщение адаптеру, чтобы он обновился
+    }
+
+ */
 }
 
 
 class TownHolder(itemView: View, private val onClick: (City) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
     private val cityText: TextView = itemView.findViewById(R.id.cityText)
-    private val briefWeatherText: TextView = itemView.findViewById(R.id.briefWeatherText)
+    private val briefWeatherImage: ImageView = itemView.findViewById(R.id.weatherImage)
     private val tempText: TextView = itemView.findViewById(R.id.tempText)
 
     fun bind(town: City) {
+        val temp = town.temperatyre
+        val brief_weather = town.brief_weather
+
         cityText.text = itemView.context.getString(R.string.city_format, town.city)
-        briefWeatherText.text = town.brief_weather ?: itemView.context.getString(R.string.brief_weather_absent)
-        var temp = town.temperatyre
         tempText.text = itemView.context.getString(R.string.temp, temp.toString())
-        if (temp == 0) {
-            tempText.setTextColor(Color.parseColor("#636363"))
+
+        when {
+            brief_weather.equals("day_clear") -> briefWeatherImage.setImageResource(R.drawable.day_clear)
+            brief_weather.equals("day_with_clarification") -> briefWeatherImage.setImageResource(R.drawable.day_with_clarification)
+            brief_weather.equals("day_rain") -> briefWeatherImage.setImageResource(R.drawable.day_rain)
+            brief_weather.equals("day_snow") -> briefWeatherImage.setImageResource(R.drawable.day_snow)
+            //brief_weather.equals("day_no_inform") -> briefWeatherImage.setImageResource(R.drawable.day_no_inform)
+
+            brief_weather.equals("night_clear") -> briefWeatherImage.setImageResource(R.drawable.night_clear)
+            brief_weather.equals("night_with_clarification") -> briefWeatherImage.setImageResource(R.drawable.night_with_clarification)
+            brief_weather.equals("night_rain") -> briefWeatherImage.setImageResource(R.drawable.night_rain)
+            brief_weather.equals("night_thunderstorm") -> briefWeatherImage.setImageResource(R.drawable.night_thunderstorm)
+            //brief_weather.equals("night_no_inform") -> briefWeatherImage.setImageResource(R.drawable.night_no_inform)
+            else -> briefWeatherImage.setImageResource(R.drawable.night_no_inform)
         }
-        else if (temp < 0) {
-            tempText.setTextColor(Color.parseColor("#0066ff"))
+
+        when {
+            temp == 0 -> tempText.setTextColor(Color.parseColor("#636363"))
+            temp < 0 -> tempText.setTextColor(Color.parseColor("#0066ff"))
+            temp > 0 -> tempText.setTextColor(Color.parseColor("#960023"))
         }
-        else if (temp > 0) {
-            tempText.setTextColor(Color.parseColor("#960023"))
-        }
+
         itemView.setOnClickListener { onClick(town) }
     }
 }
