@@ -1,4 +1,4 @@
-package forest.zykov.weatherapp.repository
+package forest.zykov.weatherapp.domain
 
 data class City (
     var id : Long,

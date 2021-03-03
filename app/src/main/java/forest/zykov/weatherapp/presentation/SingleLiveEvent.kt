@@ -1,9 +1,7 @@
-package forest.zykov.weatherapp
+package forest.zykov.weatherapp.presentation
 
 import androidx.annotation.MainThread
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
+import androidx.lifecycle.*
 import java.util.concurrent.atomic.AtomicBoolean
 
 open class SingleLiveEvent<T> : MutableLiveData<T>() {

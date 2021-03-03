@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#DDDDDD"
     android:orientation="vertical"
-    tools:context=".detail.DetailActivity">
+    tools:context=".presentation.detail.DetailActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/backBatton"

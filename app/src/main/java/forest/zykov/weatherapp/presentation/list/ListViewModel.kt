@@ -1,9 +1,9 @@
-package forest.zykov.weatherapp.list
+package forest.zykov.weatherapp.presentation.list
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import forest.zykov.weatherapp.repository.City
-import forest.zykov.weatherapp.repository.CityRepository
+import forest.zykov.weatherapp.domain.City
+import forest.zykov.weatherapp.domain.CityRepository
 
 class ListViewModel(private val repository: CityRepository) : ViewModel() {
 

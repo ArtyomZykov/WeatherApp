@@ -1,6 +1,8 @@
-package forest.zykov.weatherapp.repository
+package forest.zykov.weatherapp.data
 
-class CityRepository {
+import forest.zykov.weatherapp.domain.City
+
+class CityLocalDataSourceImpl : CityDataSource {
 
     private val city = mutableListOf(
             City(id = 0, country = "Australia", timezone = "UTC+8", city = "Canbera",
@@ -26,15 +28,14 @@ class CityRepository {
 
     )
 
-    fun getCity(): List<City> = city
+    override fun getCity(): List<City> = city
 
-    fun getCity(id: Long): City? = city.firstOrNull { it.id == id }
+    override fun getCity(id: Long): City? = city.firstOrNull { it.id == id }
 
-    fun setCity(town: City) {
-
-        val editedPersonIndex = city.indexOfFirst { it.id == town.id }
-        if (editedPersonIndex >= 0) {
-            city[editedPersonIndex] = town
+    override fun setCity(city1: City) {
+        val editedCityIndex = city.indexOfFirst { it.id == city1.id }
+        if (editedCityIndex >= 0) {
+            city[editedCityIndex] = city1
         }
     }
 }

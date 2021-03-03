@@ -5,12 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.SearchView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import forest.zykov.weatherapp.R
-import forest.zykov.weatherapp.repository.City
-import kotlin.concurrent.timer
+import forest.zykov.weatherapp.domain.City
 
 
 class CityAdapter(private val onClick: (City) -> Unit) : RecyclerView.Adapter<TownHolder>() {

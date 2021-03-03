@@ -1,4 +1,4 @@
-package forest.zykov.weatherapp.detail
+package forest.zykov.weatherapp.presentation.detail
 
 import android.content.Context
 import android.content.Intent
@@ -10,15 +10,15 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+
 import androidx.lifecycle.observe
 
-import forest.zykov.weatherapp.CityApplication
+
 import forest.zykov.weatherapp.R
-import forest.zykov.weatherapp.list.ListActivity
-import forest.zykov.weatherapp.repository.City
-import forest.zykov.weatherapp.repository.CityRepository
+
+import forest.zykov.weatherapp.domain.City
+
+import forest.zykov.weatherapp.presentation.list.ListActivity
 
 
 class DetailActivity : AppCompatActivity() {
@@ -35,15 +35,8 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private val viewModel: DetailViewModel by viewModels {
-        object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                    modelClass
-                            .getConstructor(CityRepository::class.java, Long::class.java)
-                            .newInstance(
-                                    (application as CityApplication).cityRepository,
-                                    intent.getLongExtra(EXTRA_ID, 0)
-                            )
-        }
+        val id = intent.getLongExtra(EXTRA_ID, 0)
+        DetailViewModelFactory(id)
     }
 
 
