@@ -15,7 +15,11 @@
 
         >
 
-        <activity android:name=".list.ListActivity">
+
+
+
+
+        <activity android:name="forest.zykov.weatherapp.presentation.list.ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +27,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".presentation.detail.DetailActivity"/>
+        <activity android:name="forest.zykov.weatherapp.presentation.detail.DetailActivity"/>
     </application>
 
 </manifest>

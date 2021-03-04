@@ -8,18 +8,13 @@
     android:orientation="vertical"
     tools:context=".presentation.detail.DetailActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/backBatton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:onClick="onClickBack_NePolycilosYbrat"
-        app:backgroundTint="#B6B6B6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:background="@drawable/ic_back"
+        android:backgroundTint="#404040"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/countryNameText"
@@ -36,8 +31,8 @@
         android:id="@+id/timezoneText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="24dp"
         android:textColor="@color/black"
         android:textSize="27sp"
@@ -47,8 +42,8 @@
         android:id="@+id/cityNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="24dp"
         android:textColor="@color/black"
         android:textSize="27sp"
@@ -69,22 +64,22 @@
         android:id="@+id/brief_weatherInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="24dp"
-        android:textColor="@color/black"
         android:background="@android:drawable/editbox_background"
+        android:textColor="@color/black"
         android:textSize="27sp" />
 
     <EditText
         android:id="@+id/full_weatherInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="24dp"
-        android:textColor="@color/black"
         android:background="@android:drawable/editbox_background"
+        android:textColor="@color/black"
         android:textSize="27sp" />
 
     <Button

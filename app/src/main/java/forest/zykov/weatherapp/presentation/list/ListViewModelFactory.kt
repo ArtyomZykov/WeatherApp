@@ -8,13 +8,14 @@ import forest.zykov.weatherapp.domain.GetCityUseCase
 import forest.zykov.weatherapp.domain.GetTownsUseCase
 
 class ListViewModelFactory : ViewModelProvider.Factory {
+
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         val cityDataSource = CityLocalDataSourceImpl()
         val cityRepository = CityRepositoryImpl(cityDataSource)
-        val getCityUseCase = GetTownsUseCase(cityRepository)
+        val getTownsUseCase = GetTownsUseCase(cityRepository)
 
         return modelClass
-                .getConstructor(GetCityUseCase::class.java)
-                .newInstance(getCityUseCase)
+                .getConstructor(GetTownsUseCase::class.java)
+                .newInstance(getTownsUseCase)
     }
 }

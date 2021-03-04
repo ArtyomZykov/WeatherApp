@@ -28,8 +28,8 @@ class DetailViewModel(
 
     }
 
-    fun saveCity(editedPerson: City) {
-        setCityUseCase(editedPerson)
+    fun saveCity(editedCity: City) {
+        setCityUseCase(editedCity)
         closeScreenEvent()
     }
 }

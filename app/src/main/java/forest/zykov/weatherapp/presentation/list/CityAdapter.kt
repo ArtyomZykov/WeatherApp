@@ -30,31 +30,6 @@ class CityAdapter(private val onClick: (City) -> Unit) : RecyclerView.Adapter<To
     }
 
     override fun getItemCount(): Int = city.count()
-/*
-    private fun initSearchView() {
-        val id = searchView.context.resources
-                .getIdentifier("android:id/search_src_text", null, null)
-        val textView = searchView.findViewById(id) as TextView
-        textView.setTextColor(Color.rgb(74, 74, 74))
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                val list = myDbManager.readDbData(newText!!)
-                LibAdapter.updateAdapter(list)
-                return true
-            }
-        })
-    }
-    fun updateAdapter(listItems:List<DbElem>) {
-        listArray.clear()
-        listArray.addAll(listItems)
-        notifyDataSetChanged() // Сообщение адаптеру, чтобы он обновился
-    }
-
- */
 }
 
 

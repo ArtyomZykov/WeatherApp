@@ -25,7 +25,7 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity)
-        viewModel.cityList.observe(this, ::bindPeopleList)
+        viewModel.townsList.observe(this, ::bindPeopleList)
 
         cityleList = findViewById(R.id.peopleList)
         cityleList.adapter = adapter
@@ -37,6 +37,6 @@ class ListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.loadCity()
+        viewModel.loadTowns()
     }
 }

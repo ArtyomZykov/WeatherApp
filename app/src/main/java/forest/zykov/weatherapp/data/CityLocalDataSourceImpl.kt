@@ -32,10 +32,11 @@ class CityLocalDataSourceImpl : CityDataSource {
 
     override fun getCity(id: Long): City? = city.firstOrNull { it.id == id }
 
-    override fun setCity(city1: City) {
-        val editedCityIndex = city.indexOfFirst { it.id == city1.id }
-        if (editedCityIndex >= 0) {
-            city[editedCityIndex] = city1
+    override fun setCity(town: City) {
+
+        val editedPersonIndex = city.indexOfFirst { it.id == town.id }
+        if (editedPersonIndex >= 0) {
+            city[editedPersonIndex] = town
         }
     }
 }

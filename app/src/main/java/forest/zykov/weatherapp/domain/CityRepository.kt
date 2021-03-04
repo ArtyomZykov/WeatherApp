@@ -6,5 +6,5 @@ interface CityRepository {
 
     fun getCity(id: Long): City?
 
-    fun setCity(person: City)
+    fun setCity(city: City)
 }

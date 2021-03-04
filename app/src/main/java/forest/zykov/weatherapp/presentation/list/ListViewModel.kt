@@ -4,14 +4,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import forest.zykov.weatherapp.domain.City
 import forest.zykov.weatherapp.domain.CityRepository
+import forest.zykov.weatherapp.domain.GetTownsUseCase
 
-class ListViewModel(private val repository: CityRepository) : ViewModel() {
+class ListViewModel(private val getTownsUseCase: GetTownsUseCase) : ViewModel() {
 
-    val cityList = MutableLiveData<List<City>>()
+    val townsList = MutableLiveData<List<City>>()
 
-    fun loadCity() {
-        val people = repository.getCity()
+    fun loadTowns() {
+        val towns = getTownsUseCase()
 
-        cityList.value = people
+        townsList.value = towns
     }
+
 }
